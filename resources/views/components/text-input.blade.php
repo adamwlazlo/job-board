@@ -1,9 +1,9 @@
 <div class="relative">
-    @if($formId)
+    @if($formRef)
     <button
         type="button"
         class="absolute top-2 right-1"
-        onclick="document.getElementById('{{$name}}').value = ''; document.getElementById('{{$formId}}').submit();"
+        @click="$refs['input-{{ $name }}'].value = ''; $refs['{{ $formRef }}'].submit()"
     >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
              class="size-5 text-slate-500">
@@ -11,11 +11,11 @@
         </svg>
     </button>
     @endif
-    <input type="text"
+    <input x-ref="input-{{ $name }}" type="text"
            placeholder="{{ $placeholder }}"
            name="{{ $name }}"
            value="{{ $value }}"
            id="{{ $name }}"
-           class="w-full rounded-md border-0 py-1.5 px-2.5 text-sm ring-1 ring-slate-300 placeholder:text-slate-400 focus:ring-2 {{ $formId ? 'pr-7' : '' }}"
+           class="w-full rounded-md border-0 py-1.5 px-2.5 text-sm ring-1 ring-slate-300 placeholder:text-slate-400 focus:ring-2 {{ $formRef ? 'pr-7' : '' }}"
     >
 </div>
