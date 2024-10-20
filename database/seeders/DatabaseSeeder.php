@@ -27,8 +27,7 @@ class DatabaseSeeder extends Seeder
 
         $employers = Employer::all();
 
-        for ($i = 0; $i < 100; $i++)
-        {
+        for ($i = 0; $i < 100; $i++) {
             Job::factory()->create([
                 'employer_id' => $employers->random()->id,
             ]);
@@ -37,9 +36,9 @@ class DatabaseSeeder extends Seeder
 
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory()->create([
+            'name' => 'user',
+            'email' => 'user@example.com',
+        ]);
     }
 }
