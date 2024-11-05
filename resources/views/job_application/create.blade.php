@@ -16,14 +16,13 @@
               enctype="multipart/form-data">
             @csrf
             <div class="mb-4">
-                <label for="expected_salary" class="mb-2 block text-sm font-medium text-slate-900">Expected
-                    salary</label>
+                <x-label for="expected_salary" :required="true">Expected salary</x-label>
                 <x-text-input type="number" name="expected_salary"/>
             </div>
 
             <div class="mb-4">
-                <label for="" class="mb-2 block text-sm font-medium text-slate-900">Upload file</label>
-                <x-text-input type="file" name="cv" />
+                <x-label for="cv" :required="true">Upload file</x-label>
+                <x-text-input type="file" name="cv"/>
             </div>
 
             <x-button class="w-full">Apply</x-button>
