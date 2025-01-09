@@ -5,9 +5,14 @@
     </div>
 
     <div class="mb-4 flex items-center justify-between text-sm text-slate-500 items-center">
-        <div class="flex space-x-4">
+        <div class="flex items-center space-x-4">
             <div class="class">{{ $job->employer->company_name }}</div>
             <div class="class">{{ $job->location }}</div>
+
+            @if($job->deleted_at)
+                <span class="text-xs text-red-500">Job offer deleted at: {{$job->deleted_at}}</span>
+            @endif
+
         </div>
         <div class="flex space-x-1 text-xs">
             <a href="{{route('jobs.index', ['experience' => $job->experience])}}">
